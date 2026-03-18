@@ -9,8 +9,8 @@ function Header(){
     }
 
     return(
-        <header className="bg-acc4">
-            <div className="bg-acc4 flex justify-between px-5">{/*max-w if needed*/}
+        <header className="bg-acc4 sticky w-full z-100 top-0">
+            <div className="bg-acc4 flex justify-between px-5 xl:mx-[10%] 2xl:mx-[15%]">
                 <Link to="/">
                     <img src="/recipe.png" alt="Logo" loading="lazy" className="w-11 my-4"/>
                 </Link>
