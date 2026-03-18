@@ -39,7 +39,7 @@ function Home() {
   }, []);
 
   return (
-    <main className="bg-accbg flex flex-col items-center w-screen min-h-screen">
+    <main className="bg-accbg flex flex-col items-center w-full min-h-screen">
       <div className="flex flex-col items-center gap-4 max-w-7xl p-4">
         <CarouselBody />
         <h3 className="text-2xl text-acc4 font-bold self uppercase">Categories</h3>

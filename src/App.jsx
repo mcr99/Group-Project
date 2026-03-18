@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import Contact from "./pages/Contact"
 import About from "./pages/About"
 
+import Footer from './components/Footer'
 
 function App() {
   
@@ -18,8 +19,7 @@ function App() {
         <Route path='/About' element={<About/>}></Route>
        
       </Routes>
-
-
+    <Footer/>
     </>
   )
 }
