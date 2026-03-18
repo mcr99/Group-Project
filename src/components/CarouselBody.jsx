@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import CarouselItem from "./CarouselItem";
 
+/**
+ * Function: CarouselBody
+ * Purpose: Container of the main page carousel
+ * @param {} none
+ * @returns {object} ReactNode of Carousel Body
+ */
+
 function CarouselBody() {
   const [carouselNum, setCarouselNum] = useState(0);
 
+  //Set Carousel Interval
   useEffect(() => {
     const interval = setInterval(() => {
       setCarouselNum((prev) => {
@@ -13,12 +21,12 @@ function CarouselBody() {
           return 0;
         }
       });
-    
-    }, 10000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [carouselNum]);
 
+  //Go to next carousel slide
   const next = () => {
     if (carouselNum < 4) {
       setCarouselNum((prev) => prev + 1);
@@ -27,6 +35,7 @@ function CarouselBody() {
     }
   };
 
+  //Go to previous carousel slide
   const back = () => {
     if (carouselNum > 0) {
       setCarouselNum((prev) => prev - 1);
@@ -35,6 +44,7 @@ function CarouselBody() {
     }
   };
 
+  //Set main text according to slide
   let carouselText = "";
   switch (carouselNum) {
     case 0:
@@ -56,6 +66,8 @@ function CarouselBody() {
 
   return (
     <div className="relative w-4/5 md:w-full h-52 md:h-80 lg:h-120 bg-acc2 rounded-lg">
+
+      {/* Next Button */}
       <button
         onClick={next}
         type="button"
@@ -76,6 +88,8 @@ function CarouselBody() {
           />
         </svg>
       </button>
+
+      {/* Previous Button */}
       <button
         onClick={back}
         type="button"
@@ -96,19 +110,42 @@ function CarouselBody() {
           />
         </svg>
       </button>
+
+      {/* Slide Indicator Buttons */}
       <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 flex items-center gap-3">
-        <div className={`w-3 h-3 rounded-full ${carouselNum === 0 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}></div>
-        <div className={`w-3 h-3 rounded-full ${carouselNum === 1 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}></div>
-        <div className={`w-3 h-3 rounded-full ${carouselNum === 2 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}></div>
-        <div className={`w-3 h-3 rounded-full ${carouselNum === 3 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}></div>
-        <div className={`w-3 h-3 rounded-full ${carouselNum === 4 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}></div>
-      
+        <button
+          type="button"
+          onClick={() => setCarouselNum(0)}
+          className={`w-3 h-3 rounded-full ${carouselNum === 0 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}
+        ></button>
+        <button
+          type="button"
+          onClick={() => setCarouselNum(1)}
+          className={`w-3 h-3 rounded-full ${carouselNum === 1 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}
+        ></button>
+        <button
+          type="button"
+          onClick={() => setCarouselNum(2)}
+          className={`w-3 h-3 rounded-full ${carouselNum === 2 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}
+        ></button>
+        <button
+          type="button"
+          onClick={() => setCarouselNum(3)}
+          className={`w-3 h-3 rounded-full ${carouselNum === 3 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}
+        ></button>
+        <button
+          type="button"
+          onClick={() => setCarouselNum(4)}
+          className={`w-3 h-3 rounded-full ${carouselNum === 4 ? "bg-[#ffffff80]" : "bg-[#00000080]"}`}
+        ></button>
       </div>
+
+      {/* Carousel Background */}
       <div className="relative flex justify-center w-full h-full rounded-lg">
-        <CarouselItem carouselNum={carouselNum} place={0}/>
-        <CarouselItem carouselNum={carouselNum} place={1}/>
-        <CarouselItem carouselNum={carouselNum} place={2}/>
-        <CarouselItem carouselNum={carouselNum} place={3}/>
+        <CarouselItem carouselNum={carouselNum} position={0} />
+        <CarouselItem carouselNum={carouselNum} position={1} />
+        <CarouselItem carouselNum={carouselNum} position={2} />
+        <CarouselItem carouselNum={carouselNum} position={3} />
         <p className="absolute bottom-8 md:bottom-12 lg:bottom-20 text-base md:text-2xl lg:text-4xl p-2 bg-[#fcdc8b80] rounded-lg text-acc5 font-bold">
           {carouselText}
         </p>

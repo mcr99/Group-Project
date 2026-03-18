@@ -12,7 +12,7 @@ function Header(){
         <header className="bg-acc4">
             <div className="bg-acc4 flex justify-between px-5">{/*max-w if needed*/}
                 <Link to="/">
-                    <img src="./recipe.png" alt="Logo" loading="lazy" className="w-11 my-4"/>
+                    <img src="/recipe.png" alt="Logo" loading="lazy" className="w-11 my-4"/>
                 </Link>
                 <div className="flex items-center justify-center">
                     <p className="text-2xl font-bold text-accbg hover:cursor-pointer hover:bg-accbg hover:text-acc4 p-3 rounded-lg sm:hidden" onClick={changeHamburgerToggle}>☰</p>
