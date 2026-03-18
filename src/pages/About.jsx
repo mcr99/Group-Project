@@ -2,7 +2,7 @@ import CarouselBody from "../components/CarouselBody";
 
 function About(){
     return(
-        <main className="bg-accbg flex flex-col items-center w-screen min-h-screen">
+        <main className="bg-accbg flex flex-col items-center w-full min-h-screen p-15">
             <div className="flex flex-col items-center gap-6 max-w-5xl">
                 <CarouselBody/>
                 <h1 className="text-3xl md:text-4xl font bold text-acc4 uppercase">About Savory</h1>
