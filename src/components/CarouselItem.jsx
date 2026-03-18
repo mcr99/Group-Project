@@ -1,18 +1,26 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
+/**
+ * Function: CarouselItem
+ * Purpose: One of the background items for the home carousel
+ * @param {{carouselNum, position}} params carousel position, item position in carousel
+ * @returns {object} ReactNode of carousel item
+ */
 
-function CarouselItem({ carouselNum, place }) {
-    const [myRecipe, setMyRecipe] = useState([]);
+function CarouselItem({ carouselNum, position }) {
+  const [recipe, setRecipe] = useState([]);
 
-    useEffect(() => {
+  //Get the recipe API
+  useEffect(() => {
     async function getRecipe() {
       try {
         const { data } = await axios.get(
-          "https://www.themealdb.com/api/json/v1/1/random.php"
+          "https://www.themealdb.com/api/json/v1/1/random.php",
         );
 
-        setMyRecipe(data.meals[0]);
+        setRecipe(data.meals[0]);
       } catch (error) {
         console.error("Something went wrong: ", error);
       }
@@ -20,34 +28,37 @@ function CarouselItem({ carouselNum, place }) {
     getRecipe();
   }, [carouselNum]);
 
-  let itemText = ""
-
-  switch (carouselNum){
-    case(0):
-        itemText = myRecipe.strArea;
-        break;
-    case(1):
-        itemText = myRecipe.strCategory;
-        break;
-    case(2):
-        itemText = myRecipe.strMeal;
-        break;
-    case(3):
-        itemText = myRecipe.strArea;
-        break;
-    case(4):
-        itemText = myRecipe.strIngredient1;
-        break;
+  //Set label according to carousel slide
+  let itemText = "";
+  switch (carouselNum) {
+    case 0:
+      itemText = recipe.strArea;
+      break;
+    case 1:
+      itemText = recipe.strCategory;
+      break;
+    case 2:
+      itemText = recipe.strMeal;
+      break;
+    case 3:
+      itemText = recipe.strArea;
+      break;
+    case 4:
+      itemText = recipe.strIngredient1;
+      break;
   }
-  
 
-    return ( 
-        
-      <div className={`relative flex justify-center w-1/4 h-full bg-cover ${place === 0 ? "rounded-l-lg" : place === 3 ? "rounded-r-lg" : ""}`} style={myRecipe ? {backgroundImage: `url(${myRecipe.strMealThumb})`}: {}}>
-        <p className="absolute text-xs md:text-sm lg:text-base top-3 p-1 bg-[#a9cc0e80] mx-2 text-acc5 rounded-lg">{itemText}</p>
-      </div>
-        
-     );
+  return (
+    <Link
+      to={`/meal/${recipe.idMeal}`}
+      className={`relative flex justify-center w-1/4 h-full bg-cover ${position === 0 ? "rounded-l-lg" : position === 3 ? "rounded-r-lg" : ""}`}
+      style={{ backgroundImage: `url(${recipe.strMealThumb})` }}
+    >
+      <p className="absolute text-xs md:text-sm lg:text-base top-3 p-1 bg-[#a9cc0e80] mx-2 text-acc5 rounded-lg">
+        {itemText}
+      </p>
+    </Link>
+  );
 }
 
 export default CarouselItem;
