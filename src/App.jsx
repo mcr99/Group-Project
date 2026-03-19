@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Individual from "./pages/Individual";
 import Footer from "./components/Footer";
 import WhatsappContact from "./components/WhatsappContact";
-import Meils from "./pages/Meils";
+import Meals from "./pages/Meals";
 import { useEffect } from "react";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
                 <Route path="/Contact" element={<Contact />}></Route>
                 <Route path="/About" element={<About />}></Route>
                 <Route path="/meal/:id" element={<Individual />}></Route>
-                <Route path="/meils" element={<Meils />}></Route>
+                <Route path="/meals/:group/:filter" element={<Meals />}></Route>
             </Routes>
             <Footer />
         </div>
