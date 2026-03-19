@@ -67,7 +67,7 @@ function Home() {
         {loadingCategories ? (
           <CategoriesSkeleton />
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 place-items-center md:w-2xl lg:w-auto gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 place-items-center md:w-xl lg:w-auto gap-6">
             {myCategories.map((category) => (
               <CategoryCard category={category} key={category.idCategory} />
             ))}
@@ -79,7 +79,7 @@ function Home() {
         {loadingAreas ? (
           <AreaSkeleton />
         ) : (
-          <div className="flex flex-wrap place-content-center md:max-w-3xl gap-2">
+          <div className="flex flex-wrap place-content-center md:max-w-3xl gap-2 mx-10">
             {myAreas.map((area, index) => (
               <AreaCard area={area} key={index} />
             ))}
