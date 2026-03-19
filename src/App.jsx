@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Individual from "./pages/Individual";
 import Footer from "./components/Footer";
+import WhatsappContact from "./components/WhatsappContact";
 
 function App() {
   return (
