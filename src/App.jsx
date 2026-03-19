@@ -6,7 +6,7 @@ import About from "./pages/About";
 import Individual from "./pages/Individual";
 import Footer from "./components/Footer";
 import WhatsappContact from "./components/WhatsappContact";
-import Meils from "./pages/Meils";
+import Mails from "./pages/Mails";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                 <Route path="/Contact" element={<Contact />}></Route>
                 <Route path="/About" element={<About />}></Route>
                 <Route path="/meal/:id" element={<Individual />}></Route>
-                <Route path="/meils" element={<Meils />}></Route>
+                <Route path="/mails" element={<Mails />}></Route>
             </Routes>
             <Footer />
         </div>
