@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IndividualInfoSVGs from "../components/IndividualInfoSVGs";
+import ErrorWindow from "../components/ErrorWindow";
 
 /**
  * Function: Individual
@@ -13,6 +14,7 @@ import IndividualInfoSVGs from "../components/IndividualInfoSVGs";
 function Individual() {
   const [recipe, setRecipe] = useState({});
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
   const params = useParams();
   const ingredients = [];
   let instructions = [];
@@ -29,12 +31,17 @@ function Individual() {
         setRecipe(data.meals[0]);
       } catch (error) {
         console.error("Something went wrong: ", error);
+        setErrorMessage(`${error.message}`);
       } finally {
         setLoading(false);
       }
     }
     getRecipe();
   }, []);
+
+  if (errorMessage) {
+    return<ErrorWindow errorM={errorMessage}/>
+  }
 
   //Retrieves all ingredients and measurment and sets in an array
   for (let i = 0, end = 0; i < 20 && end !== 1; i++) {
