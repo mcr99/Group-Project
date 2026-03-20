@@ -8,7 +8,7 @@ function CardFood() {
     useEffect(() => {
         async function CardFoodUnic() {
             try {
-                const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s`);
+                const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?${group.slice(0, 1)}=${filter.toLowerCase()}`);
                 setCard(data.meals || []);
             } catch (error) {
                 console.log("Algo salio mal:", error);
