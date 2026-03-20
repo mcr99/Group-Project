@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import PartialError from "./PartialError";
+
 
 function ListCountry() {
     const [area, setArea] = useState([]);
     const { filter } = useParams();
+    const [errorMessage, setErrorMessage] = useState(null);
 
     useEffect(() => {
         async function countryList() {
@@ -18,6 +21,10 @@ function ListCountry() {
         }
         countryList();
     }, []);
+
+    if (errorMessage) {
+    return<PartialError errorM={errorMessage}/>
+    }
 
     return (
         <>

@@ -63,7 +63,7 @@ function Meals() {
     <>
       <section className="bg-accbg m-auto">
         <div className="">
-          <h1 className="text-5xl p-10 text-acc5">Meals</h1>
+          <h1 className="text-5xl p-10 text-acc5 text-center font-bold">Meals</h1>
           <div className="flex justify-center items-center">
             <input
               onInput={isSearching}

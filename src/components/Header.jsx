@@ -38,7 +38,7 @@ function Header() {
                 </div>
             </div>
 
-            <nav className={`${change ? `hidden` : `block`} bg-acc2 text-accbg font-bold flex flex-col gap-2 p-2 sm:hidden`}>
+            <nav className={`${change ? `hidden` : `block`} absolute w-full bg-acc2 text-accbg font-bold flex flex-col gap-2 p-2 sm:hidden`}>
                 <Link to="/" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
                     Home
                 </Link>
