@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import ErrorWindow from "../components/ErrorWindow";
+import PartialError from "./PartialError";
 
 function ListIngredients() {
     const [ingredients, setIngredients] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(null);
     const { group, filter } = useParams();
 
     useEffect(() => {
@@ -13,10 +16,16 @@ function ListIngredients() {
                 setIngredients(IngredientesList.data.meals);
             } catch (error) {
                 console.log("Algo salio mal:", error);
+                setErrorMessage(`${error.message}`);
             }
         }
         callIngredients();
     }, []);
+
+    if (errorMessage) {
+    return<PartialError errorM={errorMessage}/>
+    }
+
     return (
         <>
             <div className="w-full md:w-72 grid grid-cols-1 ">

@@ -15,7 +15,7 @@ function CategoryCard({ category }) {
     >
       <img
         src={category.strCategoryThumb}
-        alt={category.strCategory}
+        alt={category.strCategory} loading="lazy"
         className="w-24 group-hover:scale-125 transition-transform duration-300 ease-in-out"
       />
       <p className="absolute bottom-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
