@@ -1,7 +1,6 @@
-import Header from "../components/Header";
 import SidebarFilters from "../components/SidebarFilers";
 import ListCategories from "../components/ListaCategories";
-import Footer from "../components/Footer";
+import CardFood from "../components/CardFoot";
 
 function Meals() {
     return (
@@ -20,7 +19,9 @@ function Meals() {
                     <div>
                         <SidebarFilters />
                     </div>
-                    <div></div>
+                    <div>
+                        <CardFood />
+                    </div>
                 </div>
             </section>
         </>
