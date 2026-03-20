@@ -21,7 +21,7 @@ function ListCountry() {
         <>
             <div>
                 <p className="text-acc2 capitalize">country</p>
-                <div className="h-100 grid grid-cols-2 overflow-y-auto">
+                <div className="h-60 grid grid-cols-2 overflow-y-auto">
                     {area.map((item, index) => (
                         <Link
                             to={`/meals/area/${item.strArea}`}
