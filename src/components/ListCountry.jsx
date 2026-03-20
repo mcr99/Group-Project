@@ -7,9 +7,8 @@ function ListCountry() {
     useEffect(() => {
         async function countryList() {
             try {
-                const callCountry = await axios.get("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
-                setArea(callCountry.data.meals);
-                console.log(callCountry.data.meals);
+                const { data } = await axios.get("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
+                setArea(data.meals);
             } catch (error) {
                 console.log("Algo salio mal:", error);
             }
@@ -21,8 +20,8 @@ function ListCountry() {
             <div>
                 <p className="text-acc2 capitalize">country</p>
                 <div className="h-100 grid grid-cols-2 overflow-y-auto">
-                    {area.map((item) => (
-                        <p>{item.strArea}</p>
+                    {area.map((item, index) => (
+                        <p key={index}>{item.strArea}</p>
                     ))}
                 </div>
             </div>

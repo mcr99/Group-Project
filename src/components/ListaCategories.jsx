@@ -9,7 +9,6 @@ function ListCategories() {
             try {
                 const callCategory = await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
                 setCategory(callCategory.data.categories);
-                console.log(callCategory.data.categories);
             } catch (error) {
                 console.log("Algo salio mal:", error);
             }

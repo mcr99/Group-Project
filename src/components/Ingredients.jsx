@@ -9,7 +9,6 @@ function ListIngredients() {
             try {
                 const IngredientesList = await axios.get("https://www.themealdb.com/api/json/v1/1/list.php?i=list");
                 setIngredients(IngredientesList.data.meals);
-                console.log(IngredientesList.data.meals);
             } catch (error) {
                 console.log("Algo salio mal:", error);
             }
