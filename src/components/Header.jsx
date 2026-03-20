@@ -18,7 +18,7 @@ function Header(){
                     <p className="text-2xl font-bold text-accbg hover:cursor-pointer hover:bg-accbg hover:text-acc4 p-3 rounded-lg sm:hidden" onClick={changeHamburgerToggle}>☰</p>
                     <nav className="hidden text-accbg font-bold sm:flex flex-col sm:flex-row items-center gap-1 h-full">
                         <Link to="/" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">Home</Link>
-                        <Link to="/meals" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">Meals</Link>
+                        <Link to="/meals/category/beef" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">Meals</Link>
                         <Link to="/contact" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">Contact Us</Link>
                         <Link to="/about" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">About Us</Link>
                     </nav>
@@ -27,7 +27,7 @@ function Header(){
             
             <nav className={`${change ? `hidden` : `block`} bg-acc2 text-accbg font-bold flex flex-col gap-2 p-2 sm:hidden`}>
                 <Link to="/" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">Home</Link>
-                <Link to="/meals" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">Meals</Link>
+                <Link to="/meals/category/beef" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">Meals</Link>
                 <Link to="/contact" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">Contact Us</Link>
                 <Link to="/about" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">About Us</Link>
             </nav>
