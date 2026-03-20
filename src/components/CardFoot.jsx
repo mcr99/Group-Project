@@ -41,7 +41,7 @@ function CardFood({ searching, allRecipes }) {
             <p className="text-2xl text-acc5 pl-5">{item.strMeal}</p>
           </Link>
         ))}
-        {searching && card.length === 0 ? <p>No search results</p> : ""}
+        {searching && card.length === 0 ? <p className="text-4xl self-center font-semibold text-acc4 p-20">No search results</p> : ""}
       </div>
     </>
   );
