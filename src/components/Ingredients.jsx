@@ -19,9 +19,9 @@ function ListIngredients() {
     }, []);
     return (
         <>
-            <div className="w-72 grid grid-cols-1 ">
+            <div className="w-full md:w-72 grid grid-cols-1 ">
                 <p className="text-acc2 text-2xl mb-5 capitalize">ingredients</p>
-                <div className=" w-70 flex flex-wrap gap-1 overflow-y-auto text-xl ">
+                <div className="w-full md:w-70 md:h-60 flex flex-wrap gap-1 overflow-y-auto text-xl ">
                     {ingredients.slice(0, 15).map((item) => (
                         <Link to={`/meals/ingredient/${item.strIngredient}`} className={`rounded-xl p-2 ${filter.toLowerCase() === item.strIngredient.toLowerCase() && group === "ingredient" ? "bg-acc5 text-acc3" : "bg-acc2"}`} key={item.idIngredient}>
                             {item.strIngredient}

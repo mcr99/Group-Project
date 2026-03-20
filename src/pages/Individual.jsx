@@ -59,8 +59,11 @@ function Individual() {
 
   //Edits Youtube link to embed
   if (recipe.strYoutube) {
-    youtubeLink = recipe.strYoutube.split("watch?v=").join("embed/");
-    youtubeLink = recipe.strYoutube.split("shorts").join("embed");
+    if (recipe.strYoutube.includes("watch?v=")) {
+      youtubeLink = recipe.strYoutube.split("watch?v=").join("embed/");
+    } else {
+      youtubeLink = recipe.strYoutube.split("shorts").join("embed");
+    }
   }
 
   return (
