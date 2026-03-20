@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-function CardFood() {
+function CardFood({ searching, allRecipes }) {
   const [card, setCard] = useState([]);
   const { group, filter } = useParams();
   useEffect(() => {
@@ -18,11 +18,20 @@ function CardFood() {
     }
     CardFoodUnic();
   }, [filter]);
+
+  useEffect(() => {
+    if (searching) {
+      setCard(
+        allRecipes.filter((recipe) => recipe.strMeal.trim().toLowerCase().includes(searching.trim().toLowerCase())),
+      );
+    }
+  }, [searching]);
   return (
     <>
       <div className="p-4 flex gap-4 flex-wrap">
         {card.map((item) => (
-          <Link to={`/meal/${item.idMeal}`}
+          <Link
+            to={`/meal/${item.idMeal}`}
             key={item.idMeal}
             className="w-70 h-100 m-auto mb-5 inset-shadow-sm rounded-xl bg-acc3 hover:shadow-lg transition-shadow duration-300 ease-in-out"
           >
@@ -32,8 +41,14 @@ function CardFood() {
             <p className="text-2xl text-acc5 pl-5">{item.strMeal}</p>
           </Link>
         ))}
+        {searching && card.length === 0 ? <p>No search results</p> : ""}
       </div>
     </>
   );
 }
 export default CardFood;
+
+
+function Skeleton(){
+  
+}
