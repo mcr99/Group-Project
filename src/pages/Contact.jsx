@@ -1,6 +1,6 @@
 function Contact() {
   return (
-    <main className="relative flex items-center justify-center min-h-screen">
+    <main className="-mt-10 relative flex items-center justify-center min-h-screen">
       <div
         className="absolute inset-0 bg-cover bg-center bg-[image:url(https://media.gettyimages.com/id/1457889029/photo/group-of-food-with-high-content-of-dietary-fiber-arranged-side-by-side.jpg?s=612x612&w=gi&k=20&c=YiNatAP0CzFSalhnkzSUFyy6XpVhBe3WSnRpu1W3pV4=)]"></div>
 
