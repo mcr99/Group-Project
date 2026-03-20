@@ -30,7 +30,7 @@ function About(){
                 </div>
 
                 <p className="text-md text-acc5 mt-4">
-                    Whether you are looking for inspiration, new recipies, or just exploring,<span className="font-bold">Savory</span> is your gateway to the world of premium food.
+                    Whether you are looking for inspiration, new recipies, or just exploring,<span className="font-bold"> Savory</span> is your gateway to the world of premium food.
                 </p>
 
             </div>
