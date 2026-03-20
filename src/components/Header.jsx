@@ -24,7 +24,7 @@ function Header() {
                         <Link to="/" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">
                             Home
                         </Link>
-                        <Link to="/meals" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">
+                        <Link to="/meals/category/beef" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">
                             Meals
                         </Link>
                         <Link to="/contact" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">
@@ -41,7 +41,9 @@ function Header() {
                 <Link to="/" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
                     Home
                 </Link>
-                <Link to="/meals" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
+                <Link
+                    to="/meals/category/beef"
+                    className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
                     Meals
                 </Link>
                 <Link to="/contact" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">

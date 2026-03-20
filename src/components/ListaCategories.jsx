@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 function ListCategories() {
     const [category, setCategory] = useState([]);
+    const { group, filter } = useParams();
 
     useEffect(() => {
         async function categoryList() {
@@ -22,9 +24,12 @@ function ListCategories() {
                 <p className="text-acc2 text-4xl mb-5 capitalize">categorias</p>
                 <div className=" w-12/12 grid grid-cols-2 gap-1 text-2xl md:grid md:grid-cols-3 lg:grid lg:grid-cols-5 ">
                     {category.map((item) => (
-                        <p className="bg-acc2 rounded-xl px-5" key={item.idCategory}>
+                        <Link
+                            to={`/meals/category/${item.strCategory}`}
+                            className={` rounded-xl px-5 ${filter.toLowerCase() === item.strCategory.toLowerCase() && group === "category" ? "bg-acc5 text-acc3" : "bg-acc2"}`}
+                            key={item.idCategory}>
                             {item.strCategory}
-                        </p>
+                        </Link>
                     ))}
                 </div>
             </div>
