@@ -1,10 +1,31 @@
 import SidebarFilters from "../components/SidebarFilers";
-import ListCategories from "../components/ListaCategories";
-import CardFood from "../components/CardFoot";
-import { useEffect, useState } from "react";
+import ListCategories from "../components/ListCategories";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import ErrorWindow from "../components/ErrorWindow";
 
 function Meals() {
-    
+    const [category, setCategory] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    useEffect(() => {
+        async function categoryList() {
+            try {
+                const callCategory = await axios.get("https://www.themealdb.com/api/json/v1/1/categories.php");
+                setCategory(callCategory.data.categories);
+                console.log(callCategory.data.categories);
+            } catch (error) {
+                console.log("Something went wrong", error);
+                setErrorMessage(`${error.message}`);
+            }
+        }
+        categoryList();
+    }, []);
+
+    if (errorMessage) {
+    return<ErrorWindow errorM={errorMessage}/>
+    }
+
 
     return (
         <>
@@ -15,7 +36,9 @@ function Meals() {
                         <input onInput={searching} className="w-10/12 h-15 broder border-2 border-acc1 rounded-2xl text-2xl px-5 " type="text" placeholder="Search by name..." />
                     </div>
                     <div className="flex">
-                        <ListCategories  />
+                        <ListCategories
+                        category={category}
+                        />
                     </div>
                 </div>
                 <div className="md:grid md:grid-cols-[352px_auto] md:mx-10">

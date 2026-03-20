@@ -3,7 +3,7 @@ function Footer () {
         <footer className="bg-acc4 pt-5 text-accbg font-bold sm:px-5 ">
             <div className="sm:flex justify-between items-center sm:mx-10 xl:mx-[10%] 2xl:mx-[15%]">
                 <section className="flex flex-col items-center">
-                    <p className="mb-2">Contact Us: </p>
+                    <p className="mb-2">Follow Us: </p>
                     <article className="flex gap-5 justify-center">
                     <a href="https://www.facebook.com/" target="_blank">
                         <svg className="cursor-pointer hover:rounded-full hover:bg-accbg fill-accbg hover:fill-acc4" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 25 25" fill="none"><path d="M12.5007 2.125C6.77148 2.125 2.08398 6.80208 2.08398 12.5625C2.08398 17.7708 5.89648 22.0937 10.8757 22.875V15.5833H8.22982V12.5625H10.8757V10.2604C10.8757 7.64583 12.4277 6.20833 14.8132 6.20833C15.9486 6.20833 17.1361 6.40625 17.1361 6.40625V8.97917H15.8236C14.5319 8.97917 14.1257 9.78125 14.1257 10.6042V12.5625H17.0215L16.5527 15.5833H14.1257V22.875C16.5803 22.4873 18.8154 21.2349 20.4277 19.3438C22.0399 17.4527 22.9229 15.0475 22.9173 12.5625C22.9173 6.80208 18.2298 2.125 12.5007 2.125Z" ></path></svg>

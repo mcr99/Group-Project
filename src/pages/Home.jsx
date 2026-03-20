@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CategoryCard from "../components/CategoryCard";
 import AreaCard from "../components/AreaCard";
 import CarouselBody from "../components/CarouselBody";
+import ErrorWindow from "../components/ErrorWindow";
 
 /**
  * Function: Home
@@ -16,6 +17,7 @@ function Home() {
   const [myAreas, setMyAreas] = useState([]);
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [loadingAreas, setLoadingAreas] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   //Get the APIs
   useEffect(() => {
@@ -26,10 +28,10 @@ function Home() {
         const { data } = await axios.get(
           "https://www.themealdb.com/api/json/v1/1/categories.php",
         );
-
         setMyCategories(data.categories);
       } catch (error) {
         console.error("Something went wrong: ", error);
+        setErrorMessage(`${error.message}`);
       } finally {
         setLoadingCategories(false);
       }
@@ -46,6 +48,7 @@ function Home() {
         setMyAreas(data.meals);
       } catch (error) {
         console.error("Something went wrong: ", error);
+        setErrorMessage(`${error.message}`);
       } finally {
         setLoadingAreas(false);
       }
@@ -54,6 +57,10 @@ function Home() {
     getCategories();
     getAreas();
   }, []);
+
+  if (errorMessage) {
+    return<ErrorWindow errorM={errorMessage}/>
+  }
 
   return (
     <main className="bg-accbg flex flex-col items-center w-full min-h-screen">
