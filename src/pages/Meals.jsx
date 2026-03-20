@@ -33,7 +33,7 @@ function Meals() {
                 <div className="">
                     <h1 className="text-5xl p-10 text-acc5">Meals</h1>
                     <div className="flex justify-center items-center">
-                        <input className="w-10/12 h-15 broder border-2 border-acc1 rounded-2xl text-2xl px-5 " type="text" />
+                        <input onInput={searching} className="w-10/12 h-15 broder border-2 border-acc1 rounded-2xl text-2xl px-5 " type="text" placeholder="Search by name..." />
                     </div>
                     <div className="flex">
                         <ListCategories
@@ -41,11 +41,13 @@ function Meals() {
                         />
                     </div>
                 </div>
-                <div className="md:grid md:grid-cols-2 md:mx-10">
+                <div className="md:grid md:grid-cols-[352px_auto] md:mx-10">
                     <div>
                         <SidebarFilters />
                     </div>
-                    <div></div>
+                    <div>
+                        <CardFood />
+                    </div>
                 </div>
             </section>
         </>
