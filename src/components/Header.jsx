@@ -12,8 +12,9 @@ function Header() {
         <header className="bg-acc4 sticky w-full z-100 top-0">
             <div className={`${change ? `hidden` : `block`} absolute -z-10 w-screen h-screen bg-black/50 sm:hidden`} onClick={changeHamburgerToggle}></div>
             <div className="bg-acc4 flex justify-between px-5 xl:mx-[10%] 2xl:mx-[15%]">
-                <Link to="/">
+                <Link to="/" className="flex items-center justify-center gap-2">
                     <img src="/recipe.png" alt="Logo" loading="lazy" className="w-11 my-4" />
+                    <p className="text-2xl font-bold text-accbg">Savory</p>
                 </Link>
                 <div className="flex items-center justify-center">
                     <p
@@ -21,8 +22,8 @@ function Header() {
                         onClick={changeHamburgerToggle}>
                         ☰
                     </p>
-                    <nav className="hidden text-accbg font-bold sm:flex flex-col sm:flex-row items-center gap-1 h-full">
-                        <Link to="/" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">
+                    <nav className="hidden text-accbg font-bold sm:flex flex-col sm:flex-row items-center gap-1 h-full" >
+                        <Link to="/" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg" >
                             Home
                         </Link>
                         <Link to="/meals/category/beef" className="p-3 hover:bg-accbg hover:text-acc4 hover:rounded-lg">
@@ -39,18 +40,18 @@ function Header() {
             </div>
 
             <nav className={`${change ? `hidden` : `block`} absolute w-full bg-acc2 text-accbg font-bold flex flex-col gap-2 p-2 sm:hidden`}>
-                <Link to="/" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
+                <Link to="/" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center" onClick={changeHamburgerToggle}>
                     Home
                 </Link>
                 <Link
                     to="/meals/category/beef"
-                    className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
+                    className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center" onClick={changeHamburgerToggle}>
                     Meals
                 </Link>
-                <Link to="/contact" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
+                <Link to="/contact" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center" onClick={changeHamburgerToggle}>
                     Contact Us
                 </Link>
-                <Link to="/about" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center">
+                <Link to="/about" className="hover:text-acc2 hover:bg-accbg hover:rounded-xl w-full h-11 flex items-center justify-center" onClick={changeHamburgerToggle}>
                     About Us
                 </Link>
             </nav>
