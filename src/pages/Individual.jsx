@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import IndividualInfoSVGs from "../components/IndividualInfoSVGs";
 import ErrorWindow from "../components/ErrorWindow";
 
@@ -16,6 +16,7 @@ function Individual() {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const params = useParams();
+  const navigate = useNavigate();
   const ingredients = [];
   let instructions = [];
   let youtubeLink = "";
@@ -74,12 +75,28 @@ function Individual() {
   }
 
   return (
-    <main className="flex flex-col items-center gap-5  bg-accbg w-full min-h-screen">
+    <main className="relative flex flex-col items-center gap-5  bg-accbg w-full min-h-screen">
+      <button type="button" onClick={() => navigate(-1)} className="absolute top-2 lg:top-5 left-2 md:left-12 lg:left-30 flex justify-center items-center w-8 md:w-12 h-8 md:h-12 rounded-full bg-acc3 text-acc4 shadow hover:cursor-pointer hover:shadow-lg hover:bg-acc4 hover:text-acc3 transition-all duration-300 ease-in-out">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="2.5"
+          stroke="currentColor"
+          className="size-6 md:size-8"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+          />
+        </svg>
+      </button>
       {loading ? (
         <IndividualSkeleton />
       ) : (
         <div className="flex flex-col items-center gap-5  bg-accbg w-full min-h-screen">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl text-center text-acc5 font-bold p-6 max-w-7xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-center text-acc5 font-bold p-6 md:max-w-2xl lg:max-w-6xl">
             {recipe.strMeal}
           </h1>
           <IndividualInfoSVGs recipe={recipe} />
