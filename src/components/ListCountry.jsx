@@ -9,7 +9,7 @@ function ListCountry() {
     useEffect(() => {
         async function countryList() {
             try {
-                const callCountry = await axios.get("https://wsww.themealdb.com/api/json/v1/1/list.php?a=list");
+                const callCountry = await axios.get("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
                 setArea(callCountry.data.meals);
             } catch (error) {
                 console.log("Algo salio mal:", error);
@@ -18,10 +18,6 @@ function ListCountry() {
         }
         countryList();
     }, []);
-
-    if (errorMessage) {
-    return<ErrorWindow errorM={errorMessage}/>
-    }
 
     return (
         <>
