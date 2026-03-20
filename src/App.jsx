@@ -10,7 +10,7 @@ import Meals from "./pages/Meals";
 import { useEffect } from "react";
 
 function App() {
-    const { pathname } = useLocation()
+    const { pathname } = useLocation();
 
     //Scroll to the top every page change
     useEffect(() => {
